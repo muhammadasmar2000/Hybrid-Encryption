@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #7daf9c;">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='my_style.css')}}"></link>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+  </head>
+  <body>
+    <div class="container box p-6 has-background-light">
+      <h1 class="title has-text-centered has-text-success">RSA Implementation</h1>
+      <h2 class="subtitle has-text-centered">Muhammad Asmar</h2>
+
+      <form action="" method="POST">
+        <div class="field">
+          <label class="label" for="keySize">Key Size</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" oninput="key_validation()" type="number" placeholder="Enter a key size" min="256" name="keySize" id="keySize" required />
+            <span class="icon is-small is-left">
+              <i class="fas fa-key"></i>
+            </span>
+          </div>
+          <p class="help" id="help_key"></p>
+        </div>
+
+        <div class="field">
+          <label class="label" for="message">Message</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" oninput="message_validation()" type="text" placeholder="Enter your message" minlength="1" name="msg" id="msg" required />
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+          <p class="help" id="help_message"></p>
+        </div>
+  
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-success">
+              Submit
+            </button>
+          </div>
+        </div>        
+      </form>
+      <!-- PLACE RESULTS HERE -->
+      {% if message %}
+      <div class="container my-6">
+        <article class="message is-success">
+          <div class="message-header">
+            <p>RSA Results</p>
+          </div>
+          <div class="message-body truncate-text">
+            Original Message: {{message}}<br><br>
+            Public Key: {{public_key}}<br><br>
+            Private Key: {{private_key}}<br><br>
+            Ciphertext: {{ciphertext}}<br><br>
+            Decrypted ciphertext: {{plaintext}}<br>
+          </div>
+        </article>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
