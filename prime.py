@@ -1,5 +1,4 @@
 import random
-import pandas as pd
 
 # Miller-Rabin Probabilistic Primality Test
 # Return True if n is prime, False otherwise
@@ -29,9 +28,9 @@ def primality_test(n: int, t = 40) -> bool:
 def modular_exponentiation(base, power, modulus):
     res = 1
     base = base % modulus    
-    if (base == 0) :
+    if (base == 0):
         return 0
-    while (power > 0) :
+    while (power > 0):
         if ((power & 1) == 1):
             res = (res * base) % modulus
         power = power >> 1

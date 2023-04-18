@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container box p-6 has-background-light">
-      <h1 class="title has-text-centered has-text-success">RSA Implementation</h1>
+      <h1 class="title has-text-centered has-text-success">Hybrid Encryption Scheme (RSA and DES) Implementation</h1>
       <h2 class="subtitle has-text-centered">Muhammad Asmar</h2>
 
       <form action="" method="POST">
@@ -42,19 +42,34 @@
           </div>
         </div>        
       </form>
-      <!-- PLACE RESULTS HERE -->
-      {% if message %}
+      <!-- PLACE RSA RESULTS HERE -->
+      {% if rsa_public_key %}
       <div class="container my-6">
         <article class="message is-success">
           <div class="message-header">
-            <p>RSA Results</p>
+            <p>RSA Results for Key Agreement</p>
           </div>
           <div class="message-body truncate-text">
-            Original Message: {{message}}<br><br>
-            Public Key: {{public_key}}<br><br>
-            Private Key: {{private_key}}<br><br>
-            Ciphertext: {{ciphertext}}<br><br>
-            Decrypted ciphertext: {{plaintext}}<br>
+            RSA Public Key: {{rsa_public_key}}<br><br>
+            RSA Private Key: {{rsa_private_key}}<br><br>
+            Ciphertext: {{rsa_ciphertext}}<br><br>
+            Decrypted ciphertext: {{rsa_plaintext}}<br>
+          </div>
+        </article>
+      </div>
+
+      <!-- PLACE DES RESULTS HERE -->
+      <div class="container my-6">
+        <article class="message is-success">
+          <div class="message-header">
+            <p>DES Results</p>
+          </div>
+          <div class="message-body truncate-text">
+            Decryption Successful<br><br>
+            Original Message: {{des_original_message}}
+            DES Private Key: {{des_master_key}}<br><br>
+            Ciphertext: {{des_ciphertext}}<br><br>
+            Decrypted ciphertext: {{des_plaintext}}<br>
           </div>
         </article>
       </div>
